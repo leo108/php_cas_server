@@ -1,0 +1,60 @@
+{
+    "name": "leo108/php_cas_server",
+    "description": "PHP CAS Server",
+    "license": "MIT",
+    "type": "project",
+    "homepage": "https://github.com/leo108/php_cas_server",
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": "5.2.*",
+        "leo108/laravel_cas_server": "@dev",
+        "leo108/php_cas_server_oauth_plugin_center": "@dev",
+        "arvenil/ninja-mutex": "^0.5.1"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~4.0",
+        "symfony/css-selector": "2.8.*|3.0.*",
+        "symfony/dom-crawler": "2.8.*|3.0.*",
+        "barryvdh/laravel-ide-helper": "^2.2",
+        "doctrine/dbal": "^2.5"
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ]
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ],
+        "post-install-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan ide-helper:generate",
+            "php artisan ide-helper:meta",
+            "php artisan optimize"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}

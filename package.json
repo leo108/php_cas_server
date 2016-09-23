@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "scripts": {
+    "prod": "gulp --production",
+    "dev": "gulp watch"
+  },
+  "devDependencies": {
+    "bootbox": "^4.4.0",
+    "bootstrap-sass": "^3.3.7",
+    "font-awesome": "^4.6.3",
+    "glob": "^7.0.6",
+    "gulp": "^3.9.1",
+    "jquery": "^3.1.0",
+    "laravel-elixir": "^5.0.0",
+    "lodash": "^4.16.0",
+    "metismenu": "^2.5.2",
+    "vue": "^1.0.26",
+    "vue-resource": "^1.0.2",
+    "vueify": "^8.7.0"
+  }
+}
