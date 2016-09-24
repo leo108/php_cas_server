@@ -88,7 +88,7 @@
                         <div class="form-group">
                             <label class="col-sm-4 control-label">@lang('admin.service.enabled')</label>
                             <div class="col-sm-6">
-                                <input type="checkbox" class="form-control" v-model="editService.enabled" name="enabled"/>
+                                <input type="checkbox" v-model="editService.enabled" name="enabled"/>
                             </div>
                         </div>
                     </form>

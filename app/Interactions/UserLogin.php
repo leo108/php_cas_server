@@ -65,7 +65,7 @@ class UserLogin implements Contract
      */
     public function showLoginPage(Request $request, array $errors = [])
     {
-        return view('auth.login', ['plugins' => app(PluginCenter::class)->getAll()]);
+        return view('auth.login', ['errorMsgs' => $errors, 'plugins' => app(PluginCenter::class)->getAll()]);
     }
 
     /**
@@ -74,7 +74,7 @@ class UserLogin implements Contract
      */
     public function redirectToHome(array $errors = [])
     {
-        return redirect()->route('home');
+        return redirect()->route('home')->withErrors(['global' => $errors]);
     }
 
     /**
@@ -84,6 +84,8 @@ class UserLogin implements Contract
      */
     public function logout(Request $request, callable $beforeLogout)
     {
+        call_user_func_array($beforeLogout, [$request]);
+
         return $this->doLogout();
     }
 

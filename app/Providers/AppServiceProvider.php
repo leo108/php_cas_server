@@ -4,12 +4,15 @@ namespace App\Providers;
 
 use App\Interactions\UserLogin;
 use App\Repositories\ServiceRepository;
+use App\Services\TickerLocker;
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
-use EasyWeChat\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use Leo108\CAS\Contracts\Interactions\UserLogin as UserLoginInterface;
+use Leo108\CAS\Contracts\TicketLocker as TicketLockerInterface;
 use Leo108\CAS\Repositories\ServiceRepository as ServiceRepositoryBase;
 use Leo108\CASServer\OAuth\PluginCenter;
+use NinjaMutex\Lock\LockAbstract;
+use NinjaMutex\Lock\MySqlLock;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,7 +38,16 @@ class AppServiceProvider extends ServiceProvider
         }
 
         $this->app->bind(UserLoginInterface::class, UserLogin::class);
+        $this->app->bind(TicketLockerInterface::class, TickerLocker::class);
         $this->app->bind(ServiceRepositoryBase::class, ServiceRepository::class);
+        $this->app->bind(
+            LockAbstract::class,
+            function () {
+                $conf = config('database.connections.mysql');
+
+                return new MySqlLock($conf['username'], $conf['password'], $conf['host']);
+            }
+        );
         $this->app->singleton(
             PluginCenter::class,
             function () {

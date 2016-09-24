@@ -8,12 +8,12 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">
                             Central Authentication Service
-                            @if ($errors->has('global'))
-                                <div class="alert alert-danger">{{ $errors->first('global') }}</div>
-                            @endif
                         </h3>
                     </div>
                     <div class="panel-body">
+                        @if ($errors->has('global'))
+                            <div class="alert alert-danger">{{ $errors->first('global') }}</div>
+                        @endif
                         <div class="alert alert-success">
                             @lang('auth.logged_in_as', ['name' => Auth::user()->name])
                         </div>

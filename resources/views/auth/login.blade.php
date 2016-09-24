@@ -12,6 +12,9 @@
                     @endif
                 </div>
                 <div class="panel-body">
+                    @foreach($errorMsgs as $error)
+                        <div class="alert alert-danger">{{ $error }}</div>
+                    @endforeach
                     <form class="form-horizontal" role="form" method="POST" action="{{ cas_route('login_action') }}">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
