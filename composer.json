@@ -7,8 +7,8 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "leo108/laravel_cas_server": "@dev",
-        "leo108/php_cas_server_oauth_plugin_center": "@dev",
+        "leo108/laravel_cas_server": "1.*",
+        "leo108/php_cas_server_oauth_plugin_center": "1.*",
         "arvenil/ninja-mutex": "^0.5.1"
     },
     "require-dev": {

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f08c0a1266123bc5423d30a104b04455",
-    "content-hash": "4e5880a4c66ff4adf185dd84b7eebfee",
+    "hash": "6c532011c0f73916d1e9a122cf8ed838",
+    "content-hash": "41eab7f12344b47817e382095beca30b",
     "packages": [
         {
             "name": "arvenil/ninja-mutex",
@@ -583,7 +583,7 @@
         },
         {
             "name": "leo108/laravel_cas_server",
-            "version": "dev-master",
+            "version": "1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leo108/laravel_cas_server.git",
@@ -619,7 +619,7 @@
         },
         {
             "name": "leo108/php_cas_server_oauth_plugin_center",
-            "version": "dev-master",
+            "version": "1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leo108/php_cas_server_oauth_plugin_center.git",
@@ -3872,10 +3872,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "leo108/laravel_cas_server": 20,
-        "leo108/php_cas_server_oauth_plugin_center": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
