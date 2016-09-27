@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cc5fd3c42435590d1f7b08fff7bfe6a5",
-    "content-hash": "af8eef7f8617c327a2bb32aada373a77",
+    "hash": "6ab4cc0d4546d50a6df885f0396e3d24",
+    "content-hash": "1393070d9130db5579ca43c825cf35fe",
     "packages": [
         {
             "name": "arvenil/ninja-mutex",
@@ -583,16 +583,16 @@
         },
         {
             "name": "leo108/laravel_cas_server",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leo108/laravel_cas_server.git",
-                "reference": "d343cc476144fecc3b11b6ca559e7b2b1c617efb"
+                "reference": "b428d6cd9e5b00e1c8a1f273635d88fae8302c6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leo108/laravel_cas_server/zipball/d343cc476144fecc3b11b6ca559e7b2b1c617efb",
-                "reference": "d343cc476144fecc3b11b6ca559e7b2b1c617efb",
+                "url": "https://api.github.com/repos/leo108/laravel_cas_server/zipball/b428d6cd9e5b00e1c8a1f273635d88fae8302c6a",
+                "reference": "b428d6cd9e5b00e1c8a1f273635d88fae8302c6a",
                 "shasum": ""
             },
             "require": {
@@ -615,7 +615,7 @@
                 }
             ],
             "description": "A laravel package provides CAS server implementation",
-            "time": "2016-09-24 08:41:08"
+            "time": "2016-09-26 23:47:51"
         },
         {
             "name": "leo108/php_cas_server_oauth_plugin_center",

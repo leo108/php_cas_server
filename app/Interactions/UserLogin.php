@@ -8,10 +8,10 @@
 
 namespace App\Interactions;
 
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
+use Leo108\CAS\Contracts\Models\UserModel;
 use Leo108\CASServer\OAuth\PluginCenter;
 use Symfony\Component\HttpFoundation\Response;
 use Leo108\CAS\Contracts\Interactions\UserLogin as Contract;
@@ -41,7 +41,7 @@ class UserLogin implements Contract
 
     /**
      * @param Request $request
-     * @return Authenticatable|null
+     * @return UserModel|null
      */
     public function getCurrentUser(Request $request)
     {

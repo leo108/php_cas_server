@@ -169,19 +169,21 @@ class UserRepository
     }
 
     /**
-     * @param User   $user
-     * @param string $type
-     * @param string $id
+     * @param User        $user
+     * @param string      $type
+     * @param string|null $id
+     * @param array|null  $profile
      * @return User
      * @throws BindOauthFailedException
      */
-    public function bindOauth(User $user, $type, $id)
+    public function bindOauth(User $user, $type, $id, $profile)
     {
         if ($id && $this->getUserByOauthId($type, $id)) {
             throw new BindOauthFailedException();
         }
 
         $user->oauth->{$type} = $id;
+        $user->oauth->setProfile($type, $profile);
         $user->oauth->save();
 
         return $user;

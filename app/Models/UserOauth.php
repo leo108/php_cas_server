@@ -18,6 +18,27 @@ class UserOauth extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
+    public function getProfileAttribute()
+    {
+        return json_decode($this->attributes['profile']);
+    }
+
+    public function setProfileAttribute($value)
+    {
+        $this->attributes['profile'] = json_encode($value);
+    }
+
+    public function setProfile($fieldName, $value)
+    {
+        $profile = $this->getProfileAttribute();
+        if ($value) {
+            $profile[$fieldName] = $value;
+        } else {
+            unset($profile[$fieldName]);
+        }
+        $this->setProfileAttribute($profile);
+    }
+
     public function getPluginsAttribute()
     {
         $results = [];

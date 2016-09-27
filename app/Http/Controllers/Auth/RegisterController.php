@@ -50,7 +50,7 @@ class RegisterController extends Controller
             /* @var OAuthUser $oauth */
             try {
                 foreach ($oauth->getBinds() as $type => $id) {
-                    $this->userRepository->bindOauth($user, $type, $id);
+                    $this->userRepository->bindOauth($user, $type, $id, $oauth->getOriginal());
                 }
             } catch (BindOauthFailedException $e) {
                 //FIXME should handle this exception

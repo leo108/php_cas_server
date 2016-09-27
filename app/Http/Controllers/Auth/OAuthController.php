@@ -97,11 +97,11 @@ class OAuthController extends Controller
 
         try {
             foreach ($oauthUser->getBinds() as $type => $id) {
-                $this->userRepository->bindOauth($bindUser, $type, $id);
+                $this->userRepository->bindOauth($bindUser, $type, $id, $oauthUser->getOriginal());
             }
         } catch (BindOauthFailedException $e) {
             foreach ($oauthUser->getBinds() as $type => $id) {
-                $this->userRepository->bindOauth($bindUser, $type, null);
+                $this->userRepository->bindOauth($bindUser, $type, null, null);
             }
 
             return $this->error(trans('already bind by another account'));
