@@ -60,13 +60,13 @@ class OAuthController extends Controller
         }
 
         if ($request->user()) {
-            return $this->bind($request, $bindUser, $oauthUser);
+            return $this->bind($request, $oauthUser, $bindUser);
         } else {
-            return $this->regOrLogin($request, $bindUser, $oauthUser);
+            return $this->regOrLogin($request, $oauthUser, $bindUser);
         }
     }
 
-    protected function regOrLogin(Request $request, User $bindUser, OAuthUser $oauthUser)
+    protected function regOrLogin(Request $request, OAuthUser $oauthUser, User $bindUser = null)
     {
         //register
         if (!$bindUser) {
@@ -84,7 +84,7 @@ class OAuthController extends Controller
         return $this->reload();
     }
 
-    protected function bind(Request $request, User $bindUser, OAuthUser $oauthUser)
+    protected function bind(Request $request, OAuthUser $oauthUser, User $bindUser = null)
     {
         if ($bindUser) {
             if ($bindUser->id != $request->user()->id) {

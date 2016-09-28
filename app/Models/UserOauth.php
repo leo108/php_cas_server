@@ -20,7 +20,7 @@ class UserOauth extends Model
 
     public function getProfileAttribute()
     {
-        return json_decode($this->attributes['profile']);
+        return json_decode($this->attributes['profile'], true);
     }
 
     public function setProfileAttribute($value)

@@ -1,4 +1,4 @@
 <script>
     window.opener.reload();
-    //window.close();
+    window.close();
 </script>
