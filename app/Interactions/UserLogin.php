@@ -56,6 +56,7 @@ class UserLogin implements Contract
      */
     public function showLoginWarnPage(Request $request, $jumpUrl, $service)
     {
+        return view('auth.login_warn', ['url' => $jumpUrl, 'service' => $service]);
     }
 
     /**
