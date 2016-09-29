@@ -19,20 +19,19 @@ class RegisterController extends Controller
      */
     protected $userRepository;
 
-    protected $redirectPath = '';
-
     /**
      * RegisterController constructor.
      * @param UserRepository $userRepository
      */
     public function __construct(UserRepository $userRepository)
     {
-        $this->redirectPath   = route('home');
         $this->userRepository = $userRepository;
     }
 
     public function show(Request $request)
     {
+        $request->session()->put('register.referrer', $request->server('HTTP_REFERER', route('home')));
+
         return view('auth.register', ['oauth' => $request->session()->get('oauth', null)]);
     }
 
@@ -60,6 +59,6 @@ class RegisterController extends Controller
 
         \Auth::guard($this->getGuard())->login($user);
 
-        return redirect($this->redirectPath());
+        return redirect($request->session()->pull('register.referrer', route('home')));
     }
 }
