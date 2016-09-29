@@ -13,4 +13,5 @@ return [
         'name_duplicated' => 'Service name duplicated',
         'host_occupied'   => 'Service host :host is occupied',
     ],
+    'back_to_home'      => 'Back To Home',
 ];

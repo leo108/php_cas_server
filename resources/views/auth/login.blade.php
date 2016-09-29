@@ -69,7 +69,7 @@
                         @if(count($plugins) > 0)
                         <div class="form-group">
                             @foreach($plugins as $plugin)
-                                <a class="col-lg-3" target="_blank" href="{{ route('oauth.login', ['name' => $plugin->getFieldName()]) }}">{{ $plugin->getName() }}</a>
+                                <a class="col-lg-3" href="{{ route('oauth.login', ['name' => $plugin->getFieldName()]) }}">{{ $plugin->getName() }}</a>
                             @endforeach
                         </div>
                         @endif

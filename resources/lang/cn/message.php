@@ -13,4 +13,5 @@ return [
         'name_duplicated' => '该服务名已被占用',
         'host_occupied'   => '域名 :host 已被其他服务占用',
     ],
+    'back_to_home'      => '返回首页',
 ];

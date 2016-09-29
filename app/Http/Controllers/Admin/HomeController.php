@@ -10,7 +10,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
-use Leo108\CAS\Repositories\ServiceRepository;
+use App\Repositories\ServiceRepository;
 
 class HomeController extends Controller
 {

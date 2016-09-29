@@ -4,16 +4,17 @@ namespace App\Http\Controllers\Auth;
 
 use App\Exceptions\BindOauthFailedException;
 use App\Repositories\UserRepository;
+use App\Traits\Response\ShowMessage;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Response;
 use Leo108\CASServer\OAuth\OAuthUser;
 use Leo108\CASServer\OAuth\Plugin;
 use Leo108\CASServer\OAuth\PluginCenter;
 
 class OAuthController extends Controller
 {
+    use ShowMessage;
     /**
      * @var UserRepository
      */
@@ -34,6 +35,8 @@ class OAuthController extends Controller
         if (is_null($plugin)) {
             return response('', 404);
         }
+
+        $request->session()->put('oauth.referrer', $request->server('HTTP_REFERER', route('home')));
 
         /* @var Plugin $plugin */
         return $plugin->gotoAuthUrl($request, route('oauth.callback', ['name' => $name]));
@@ -73,15 +76,15 @@ class OAuthController extends Controller
             if (config('cas_server.allow_register')) {
                 $request->session()->set('oauth', $oauthUser);
 
-                return $this->redirect(route('register.get'));
+                return redirect(route('register.get'));
             } else {
-                return $this->error(trans('not allowed to register'));
+                return $this->showMessage(trans('not allowed to register'));
             }
         }
 
         \Auth::guard()->login($bindUser);
 
-        return $this->reload();
+        return redirect($this->getReferrerUrl($request));
     }
 
     protected function bind(Request $request, OAuthUser $oauthUser, User $bindUser = null)
@@ -92,7 +95,7 @@ class OAuthController extends Controller
             }
 
             //already bind that account
-            return $this->reload();
+            return redirect($this->getReferrerUrl($request));
         }
 
         try {
@@ -104,38 +107,18 @@ class OAuthController extends Controller
                 $this->userRepository->bindOauth($bindUser, $type, null, null);
             }
 
-            return $this->error(trans('already bind by another account'));
+            return $this->showMessage(trans('already bind by another account'));
         }
 
-        return $this->reload();
+        return redirect($this->getReferrerUrl($request));
     }
 
     /**
-     * redirect opener page
-     * @param string $url
-     * @return Response
+     * @param Request $request
+     * @return string
      */
-    protected function redirect($url)
+    protected function getReferrerUrl(Request $request)
     {
-        return view('auth.oauth.redirect', ['redirect' => $url]);
-    }
-
-    /**
-     * reload opener page
-     * @return Response
-     */
-    protected function reload()
-    {
-        return view('auth.oauth.reload');
-    }
-
-    /**
-     * show error message in opener page
-     * @param string $msg
-     * @return Response
-     */
-    protected function error($msg)
-    {
-        return view('auth.oauth.error', ['msg' => $msg]);
+        return $request->session()->pull('oauth.referrer', route('home'));
     }
 }
