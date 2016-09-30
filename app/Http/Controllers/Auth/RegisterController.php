@@ -30,9 +30,14 @@ class RegisterController extends Controller
 
     public function show(Request $request)
     {
-        $request->session()->put('register.referrer', $request->server('HTTP_REFERER', route('home')));
+        $oauth    = $request->session()->get('oauth', null);
+        $referrer = $request->server('HTTP_REFERER', route('home'));
+        if ($oauth) {
+            $referrer = $request->session()->pull('oauth.referrer', route('home'));
+        }
+        $request->session()->put('register.referrer', $referrer);
 
-        return view('auth.register', ['oauth' => $request->session()->get('oauth', null)]);
+        return view('auth.register', ['oauth' => $oauth]);
     }
 
     public function register(Request $request)
