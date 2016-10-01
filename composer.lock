@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6ab4cc0d4546d50a6df885f0396e3d24",
-    "content-hash": "1393070d9130db5579ca43c825cf35fe",
+    "hash": "97a4b5c12bbbe8aecc48c04c7a582db8",
+    "content-hash": "cfea69ce2957cd75b8af3b346c4dbae7",
     "packages": [
         {
             "name": "arvenil/ninja-mutex",
@@ -583,16 +583,16 @@
         },
         {
             "name": "leo108/laravel_cas_server",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leo108/laravel_cas_server.git",
-                "reference": "b428d6cd9e5b00e1c8a1f273635d88fae8302c6a"
+                "reference": "69d8ba991328bbdac6c129a4865d177ac51cf48c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leo108/laravel_cas_server/zipball/b428d6cd9e5b00e1c8a1f273635d88fae8302c6a",
-                "reference": "b428d6cd9e5b00e1c8a1f273635d88fae8302c6a",
+                "url": "https://api.github.com/repos/leo108/laravel_cas_server/zipball/69d8ba991328bbdac6c129a4865d177ac51cf48c",
+                "reference": "69d8ba991328bbdac6c129a4865d177ac51cf48c",
                 "shasum": ""
             },
             "require": {
@@ -615,7 +615,7 @@
                 }
             ],
             "description": "A laravel package provides CAS server implementation",
-            "time": "2016-09-26 23:47:51"
+            "time": "2016-10-01 05:28:30"
         },
         {
             "name": "leo108/php_cas_server_oauth_plugin_center",
@@ -2710,16 +2710,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "9270140b940ff02e58ec577c237274e92cd40cdd"
+                "reference": "8331b5efe816ae05461b7ca1e721c01b46bafb3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/9270140b940ff02e58ec577c237274e92cd40cdd",
-                "reference": "9270140b940ff02e58ec577c237274e92cd40cdd",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/8331b5efe816ae05461b7ca1e721c01b46bafb3e",
+                "reference": "8331b5efe816ae05461b7ca1e721c01b46bafb3e",
                 "shasum": ""
             },
             "require": {
@@ -2751,7 +2751,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2016-06-10 09:48:41"
+            "time": "2016-09-30 07:12:33"
         },
         {
             "name": "phpdocumentor/type-resolver",

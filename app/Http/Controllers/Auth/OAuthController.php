@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Exceptions\BindOauthFailedException;
+use App\Exceptions\InvalidArgumentException;
 use App\Repositories\UserRepository;
 use App\Traits\Response\ShowMessage;
 use App\User;
@@ -36,7 +37,7 @@ class OAuthController extends Controller
             return response('', 404);
         }
 
-        $request->session()->put('oauth.referrer', $request->server('HTTP_REFERER', route('home')));
+        $request->session()->put('referrer.oauth', $request->server('HTTP_REFERER', route('home')));
 
         /* @var Plugin $plugin */
         return $plugin->gotoAuthUrl($request, route('oauth.callback', ['name' => $name]));
@@ -82,6 +83,8 @@ class OAuthController extends Controller
             }
         }
 
+        //refresh db oauth profile
+        $this->bind($request, $oauthUser, $bindUser);
         \Auth::guard()->login($bindUser);
 
         return redirect($this->getReferrerUrl($request));
@@ -89,22 +92,23 @@ class OAuthController extends Controller
 
     protected function bind(Request $request, OAuthUser $oauthUser, User $bindUser = null)
     {
-        if ($bindUser) {
-            if ($bindUser->id != $request->user()->id) {
-                throw new BindOauthFailedException();
-            }
+        $user = $request->user() ?: $bindUser;
+        if (!$user) {
+            throw new InvalidArgumentException('logged-in user and bind user can not be null at the same time');
+        }
 
-            //already bind that account
-            return redirect($this->getReferrerUrl($request));
+        if ($bindUser && $request->user() && $bindUser->id != $request->user()->id) {
+            throw new BindOauthFailedException(trans('your oauth account has been bind to another account'));
         }
 
         try {
             foreach ($oauthUser->getBinds() as $type => $id) {
-                $this->userRepository->bindOauth($bindUser, $type, $id, $oauthUser->getOriginal());
+                $this->userRepository->bindOauth($user, $type, $id, $oauthUser->getOriginal());
             }
         } catch (BindOauthFailedException $e) {
+            //unbind
             foreach ($oauthUser->getBinds() as $type => $id) {
-                $this->userRepository->bindOauth($bindUser, $type, null, null);
+                $this->userRepository->bindOauth($user, $type, null, null);
             }
 
             return $this->showMessage(trans('already bind by another account'));
@@ -119,6 +123,6 @@ class OAuthController extends Controller
      */
     protected function getReferrerUrl(Request $request)
     {
-        return $request->session()->pull('oauth.referrer', route('home'));
+        return $request->session()->pull('referrer.oauth', route('home'));
     }
 }

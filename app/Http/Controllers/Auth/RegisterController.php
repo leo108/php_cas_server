@@ -33,9 +33,9 @@ class RegisterController extends Controller
         $oauth    = $request->session()->get('oauth', null);
         $referrer = $request->server('HTTP_REFERER', route('home'));
         if ($oauth) {
-            $referrer = $request->session()->pull('oauth.referrer', route('home'));
+            $referrer = $request->session()->pull('referrer.oauth', route('home'));
         }
-        $request->session()->put('register.referrer', $referrer);
+        $request->session()->put('referrer.register', $referrer);
 
         return view('auth.register', ['oauth' => $oauth]);
     }
@@ -64,6 +64,6 @@ class RegisterController extends Controller
 
         \Auth::guard($this->getGuard())->login($user);
 
-        return redirect($request->session()->pull('register.referrer', route('home')));
+        return redirect($request->session()->pull('referrer.register', route('home')));
     }
 }
