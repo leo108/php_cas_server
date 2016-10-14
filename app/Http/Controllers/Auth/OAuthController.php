@@ -84,10 +84,10 @@ class OAuthController extends Controller
         }
 
         //refresh db oauth profile
-        $this->bind($request, $oauthUser, $bindUser);
+        $resp = $this->bind($request, $oauthUser, $bindUser);
         \Auth::guard()->login($bindUser);
 
-        return redirect($this->getReferrerUrl($request));
+        return $resp;
     }
 
     protected function bind(Request $request, OAuthUser $oauthUser, User $bindUser = null)
