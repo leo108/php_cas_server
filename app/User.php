@@ -62,7 +62,7 @@ class User extends Authenticatable implements UserModel
         return [
             'email'         => $this->email,
             'real_name'     => $this->real_name,
-            'oauth_profile' => $this->oauth->profile,
+            'oauth_profile' => json_encode($this->oauth->profile),
         ];
     }
 }
