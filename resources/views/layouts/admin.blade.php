@@ -9,7 +9,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
     <link rel="stylesheet" href="{{ elixir('css/sb-admin-2.css') }}">
-    <link rel="stylesheet" href="{{ elixir('css/metisMenu.css') }}">
     @yield('stylesheet')
     <script>window.Laravel = {!! json_encode(['csrfToken' => csrf_token()]) !!};</script>
 </head>
@@ -60,7 +59,6 @@
 @yield('content')
 
 <script src="{{ elixir('js/common.js') }}"></script>
-<script src="{{ elixir('js/metisMenu.js') }}"></script>
 <script src="{{ elixir('js/admin/admin.js') }}"></script>
 @yield('javascript')
 <script>

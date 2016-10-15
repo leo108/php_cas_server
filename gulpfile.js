@@ -36,9 +36,6 @@ elixir(function (mix) {
     mix
         .less('sb-admin-2.less')
         .sass('app.scss')
-        .copy('node_modules/metismenu/dist/metisMenu.css', 'public/css/metisMenu.css')
-        .copy('node_modules/metismenu/dist/metisMenu.js', 'public/js/metisMenu.js')
-        .copy('node_modules/bootbox/bootbox.js', 'public/js/bootbox.js')
         .browserify('common/common.js')
         .version(['css/**/*.css', 'js/**/*.js'])
         .copy('node_modules/font-awesome/fonts', 'public/build/fonts')

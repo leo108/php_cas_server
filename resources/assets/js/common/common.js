@@ -24,4 +24,7 @@ Vue.http.interceptors.push((request, next) => {
 
 Laravel.router = require('./backend-router-generator');
 Laravel.trans = require('./translator');
+window.bootbox = require('bootbox');
+
+require('./jquery-ajax');
 require('./errors');

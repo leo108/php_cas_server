@@ -1,6 +1,9 @@
 /**
  * Created by leo108 on 16/9/20.
  */
+
+require('metismenu');
+
 $(function () {
     $('#side-menu').metisMenu();
     $(window).bind("load resize", function () {

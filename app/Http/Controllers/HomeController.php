@@ -33,7 +33,7 @@ class HomeController extends Controller
 
     public function changePwdAction(Request $request)
     {
-        $rule = $this->userRepository->getPasswordRule(true);
+        $rule = $this->userRepository->getPasswordRule(false);
         $this->validate($request, ['new' => $rule], [], ['new' => trans('auth.new_pwd')]);
 
         $old  = $request->get('old');

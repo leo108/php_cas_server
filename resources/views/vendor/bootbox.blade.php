@@ -1,4 +1,3 @@
-<script src="{{ elixir('js/bootbox.js') }}"></script>
 <script>
     (function () {
         var locate = {
