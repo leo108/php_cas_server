@@ -16,6 +16,7 @@
                         <div class="alert alert-danger">{{ $error }}</div>
                     @endforeach
                     <form class="form-horizontal" role="form" method="POST" action="{{ cas_route('login_action') }}">
+                        @if(!config('cas_server.disable_pwd_login'))
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
@@ -65,7 +66,7 @@
                                 @endif
                             </div>
                         </div>
-
+                        @endif
                         @if(count($plugins) > 0)
                         <div class="form-group">
                             @foreach($plugins as $plugin)
