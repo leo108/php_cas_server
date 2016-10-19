@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6e05a023e1537c4f91cbcf568809f015",
-    "content-hash": "44ad89160a1b6260e0ebab290f2b41c8",
+    "hash": "389a5dbb0ad33fe6626e4c62260d3341",
+    "content-hash": "54e45f9785d07e603506bb027efe24e3",
     "packages": [
         {
             "name": "arvenil/ninja-mutex",
@@ -222,6 +222,57 @@
                 "string"
             ],
             "time": "2015-11-06 14:35:42"
+        },
+        {
+            "name": "fideloper/proxy",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fideloper/TrustedProxy.git",
+                "reference": "ec4dd30141e2515e307aea3539ff242e85c3f120"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fideloper/TrustedProxy/zipball/ec4dd30141e2515e307aea3539ff242e85c3f120",
+                "reference": "ec4dd30141e2515e307aea3539ff242e85c3f120",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "illuminate/http": "~5.0",
+                "mockery/mockery": "~0.9.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fideloper\\Proxy\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Fidao",
+                    "email": "fideloper@gmail.com"
+                }
+            ],
+            "description": "Set trusted proxies for Laravel",
+            "keywords": [
+                "load balancing",
+                "proxy",
+                "trusted proxy"
+            ],
+            "time": "2015-12-24 15:02:55"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -500,20 +551,20 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.28",
+            "version": "1.0.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "a9663643ff2d16d7f66ed1e0d3212c5491bc9044"
+                "reference": "75138bb14160f3ba963750aa95e08d1d394fb198"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/a9663643ff2d16d7f66ed1e0d3212c5491bc9044",
-                "reference": "a9663643ff2d16d7f66ed1e0d3212c5491bc9044",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/75138bb14160f3ba963750aa95e08d1d394fb198",
+                "reference": "75138bb14160f3ba963750aa95e08d1d394fb198",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=5.5.9"
             },
             "conflict": {
                 "league/flysystem-sftp": "<1.0.6"
@@ -579,20 +630,20 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-10-07 12:20:37"
+            "time": "2016-10-18 16:20:02"
         },
         {
             "name": "leo108/laravel_cas_server",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leo108/laravel_cas_server.git",
-                "reference": "bfae73f528b72eaa490346aec3512ed5d28451a8"
+                "reference": "c3f7bd96b26c3bd2e9291a629157a4d58e2ce68e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leo108/laravel_cas_server/zipball/bfae73f528b72eaa490346aec3512ed5d28451a8",
-                "reference": "bfae73f528b72eaa490346aec3512ed5d28451a8",
+                "url": "https://api.github.com/repos/leo108/laravel_cas_server/zipball/c3f7bd96b26c3bd2e9291a629157a4d58e2ce68e",
+                "reference": "c3f7bd96b26c3bd2e9291a629157a4d58e2ce68e",
                 "shasum": ""
             },
             "require": {
@@ -621,7 +672,7 @@
                 }
             ],
             "description": "A laravel package provides CAS server implementation",
-            "time": "2016-10-13 02:02:14"
+            "time": "2016-10-15 07:09:31"
         },
         {
             "name": "leo108/php_cas_server_oauth_plugin_center",

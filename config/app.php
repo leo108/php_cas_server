@@ -163,6 +163,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Fideloper\Proxy\TrustedProxyServiceProvider::class,
         Leo108\CAS\CASServerServiceProvider::class,
     ],
 
