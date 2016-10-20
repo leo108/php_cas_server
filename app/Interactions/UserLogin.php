@@ -34,7 +34,7 @@ class UserLogin implements Contract
      */
     public function login(Request $request, callable $authenticated)
     {
-        if (!config('cas_server.disable_pwd_login')) {
+        if (config('cas_server.disable_pwd_login')) {
             return response('', 403);
         }
         $this->authenticated = $authenticated;
