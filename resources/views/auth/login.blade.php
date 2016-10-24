@@ -18,6 +18,9 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ cas_route('login_action') }}">
                         @if(!config('cas_server.disable_pwd_login'))
                         {{ csrf_field() }}
+                        @if(!is_null($service))
+                            <input type="hidden" name="service" value="{!! $service !!}">
+                        @endif
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 

@@ -69,7 +69,14 @@ class UserLogin implements Contract
      */
     public function showLoginPage(Request $request, array $errors = [])
     {
-        return view('auth.login', ['errorMsgs' => $errors, 'plugins' => app(PluginCenter::class)->getAll()]);
+        return view(
+            'auth.login',
+            [
+                'errorMsgs' => $errors,
+                'plugins'   => app(PluginCenter::class)->getAll(),
+                'service'   => $request->get('service', null),
+            ]
+        );
     }
 
     /**
