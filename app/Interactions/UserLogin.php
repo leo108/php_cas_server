@@ -31,7 +31,8 @@ class UserLogin implements Contract
             return null;
         }
 
-        $credentials = $this->getCredentials($request);
+        $credentials            = $this->getCredentials($request);
+        $credentials['enabled'] = true;
         if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
             return Auth::guard($this->getGuard())->user();
         }

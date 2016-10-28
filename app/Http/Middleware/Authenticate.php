@@ -10,14 +10,17 @@ class Authenticate
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  string|null  $guard
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Closure                 $next
+     * @param  string|null              $guard
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->guest()) {
+        if (Auth::guard($guard)->guest() || !Auth::guard($guard)->user()->enabled) {
+            if (Auth::guard($guard)->user()) {
+                Auth::guard($guard)->logout();
+            }
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
             }
