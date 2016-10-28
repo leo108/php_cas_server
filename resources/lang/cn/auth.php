@@ -25,4 +25,11 @@ return [
     'new_pwd'      => '新密码',
     'new_pwd2'     => '重复密码',
     'need_login'   => '请先登录',
+    'register'     => '注册',
+    'email'        => '邮箱',
+    'login'        => '登录',
+    'forgot_pwd'   => '忘记密码',
+    'real_name'    => '真实姓名',
+    'confirm_pwd'  => '重复密码',
+    'logged_out'   => '注销成功',
 ];

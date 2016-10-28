@@ -42,6 +42,7 @@ return [
         'name'              => 'Service Name',
         'hosts'             => 'Service Domain',
         'enabled'           => 'Enabled',
+        'allow_proxy'       => 'Allow proxy',
         'created_at'        => 'Created Time',
         'add'               => 'Add Service',
         'hosts_placeholder' => 'One url per line',

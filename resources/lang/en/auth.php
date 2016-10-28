@@ -25,4 +25,11 @@ return [
     'new_pwd'      => 'New Password',
     'new_pwd2'     => 'Confirm New Password',
     'need_login'   => 'You need to login first',
+    'register'     => 'Register',
+    'email'        => 'E-Mail Address',
+    'login'        => 'Login',
+    'forgot_pwd'   => 'Forgot Your Password?',
+    'real_name'    => 'Real Name',
+    'confirm_pwd'  => 'Confirm Password',
+    'logged_out'   => 'Logout successful',
 ];

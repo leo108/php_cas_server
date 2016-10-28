@@ -11,6 +11,7 @@ namespace App\Interactions;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Leo108\CAS\Contracts\Models\UserModel;
 use Leo108\CASServer\OAuth\PluginCenter;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,28 +19,33 @@ use Leo108\CAS\Contracts\Interactions\UserLogin as Contract;
 
 class UserLogin implements Contract
 {
-    use AuthenticatesUsers, ValidatesRequests {
-        login as doLogin;
-        logout as doLogout;
-    }
-    /**
-     * @var callable
-     */
-    protected $authenticated;
+    use AuthenticatesUsers, ValidatesRequests;
 
     /**
-     * @param Request  $request
-     * @param callable $authenticated
-     * @return Response
+     * @param Request $request
+     * @return UserModel|null
      */
-    public function login(Request $request, callable $authenticated)
+    public function login(Request $request)
     {
         if (config('cas_server.disable_pwd_login')) {
-            return response('', 403);
+            return null;
         }
-        $this->authenticated = $authenticated;
 
-        return $this->doLogin($request);
+        $credentials = $this->getCredentials($request);
+        if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
+            return Auth::guard($this->getGuard())->user();
+        }
+
+        return null;
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     */
+    public function showAuthenticateFailed(Request $request)
+    {
+        return $this->sendFailedLoginResponse($request);
     }
 
     /**
@@ -89,24 +95,20 @@ class UserLogin implements Contract
     }
 
     /**
-     * @param Request  $request
-     * @param callable $beforeLogout
-     * @return Response
+     * @param Request $request
+     * @return void
      */
-    public function logout(Request $request, callable $beforeLogout)
+    public function logout(Request $request)
     {
-        call_user_func_array($beforeLogout, [$request]);
-
-        return $this->doLogout();
+        Auth::guard($this->getGuard())->logout();
     }
 
     /**
      * @param Request $request
-     * @param         $user
-     * @return mixed
+     * @return Response
      */
-    protected function authenticated(Request $request, $user)
+    public function showLoggedOut(Request $request)
     {
-        return call_user_func_array($this->authenticated, [$request, $user]);
+        return view('auth.logged_out');
     }
 }

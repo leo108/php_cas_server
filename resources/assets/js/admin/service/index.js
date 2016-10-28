@@ -13,6 +13,7 @@ Vue.component('admin-service-index', {
                 id: 0,
                 name: '',
                 enabled: true,
+                allow_proxy: false,
                 hosts: '',
             },
             busy: false,
@@ -28,19 +29,20 @@ Vue.component('admin-service-index', {
             let cls = value ? 'fa-check' : 'fa-times';
             return '<i class="fa ' + cls + '"></i>';
         },
-        displayHosts(hostArr) {
+        displayHosts(hostArr, glu = '<br/>') {
             let arr = [];
             for (let x in hostArr) {
                 arr.push(hostArr[x].host);
             }
-            return arr.join("\n");
+            return arr.join(glu);
         },
         edit(item) {
             this.isEdit = true;
             this.editService.id = item.id;
             this.editService.name = item.name;
             this.editService.enabled = item.enabled;
-            this.editService.hosts = this.displayHosts(item.hosts);
+            this.editService.allow_proxy = item.allow_proxy;
+            this.editService.hosts = this.displayHosts(item.hosts, "\n");
             $('#edit-dialog').modal();
         },
         showAdd() {
@@ -48,6 +50,8 @@ Vue.component('admin-service-index', {
             this.editService.id = 0;
             this.editService.name = '';
             this.editService.hosts = '';
+            this.editService.enabled = true;
+            this.editService.allow_proxy = false;
             $('#edit-dialog').modal();
         },
         save() {

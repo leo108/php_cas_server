@@ -7,7 +7,7 @@
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">
-                            Central Authentication Service
+                            {{ config('cas_server.site_name') }}
                         </h3>
                     </div>
                     <div class="panel-body">

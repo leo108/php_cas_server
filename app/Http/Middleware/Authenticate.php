@@ -22,7 +22,7 @@ class Authenticate
                 return response('Unauthorized.', 401);
             }
 
-            return redirect()->guest(cas_route('login_page'));
+            return redirect()->guest(cas_route('login.get'));
         }
 
         return $next($request);
