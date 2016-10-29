@@ -30,6 +30,7 @@
                             <th>@lang('admin.service.name')</th>
                             <th>@lang('admin.service.hosts')</th>
                             <th>@lang('admin.service.enabled')</th>
+                            <th>@lang('admin.service.allow_proxy')</th>
                             <th>@lang('admin.service.created_at')</th>
                             <th>
                                 <button class="btn btn-xs btn-primary" @click="showAdd()">{{ trans('admin.service.add') }}</button>
@@ -42,6 +43,7 @@
                             <td>@{{ item.name }}</td>
                             <td>@{{{ displayHosts(item.hosts) }}}</td>
                             <td>@{{{ bool2icon(item.enabled) }}}</td>
+                            <td>@{{{ bool2icon(item.allow_proxy) }}}</td>
                             <td>@{{ item.created_at }}</td>
                             <td>
                                 <a href="javascript:void(0)" @click="edit(item)">{{ trans('admin.edit') }}</a>
@@ -83,6 +85,12 @@
                             <div class="col-sm-6">
                             <textarea class="form-control" name="hosts" cols="30" rows="10" v-model="editService.hosts"
                                       placeholder="@lang('admin.service.hosts_placeholder')"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">@lang('admin.service.allow_proxy')</label>
+                            <div class="col-sm-6">
+                                <input type="checkbox" v-model="editService.allow_proxy" name="allow_proxy"/>
                             </div>
                         </div>
                         <div class="form-group">

@@ -23,6 +23,6 @@ class Admin
             return response('Unauthorized.', 401);
         }
 
-        return redirect(cas_route('login_page'));
+        return redirect(cas_route('login.get'));
     }
 }

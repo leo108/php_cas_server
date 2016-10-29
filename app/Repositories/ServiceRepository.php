@@ -27,18 +27,20 @@ class ServiceRepository extends Base
         $this->validate(
             $data,
             [
-                'name'    => 'required|unique:cas_services',
-                'hosts'   => 'array',
-                'hosts.*' => 'unique:cas_service_hosts,host',
-                'enabled' => 'required|boolean',
+                'name'        => 'required|unique:cas_services',
+                'hosts'       => 'array',
+                'hosts.*'     => 'unique:cas_service_hosts,host',
+                'enabled'     => 'required|boolean',
+                'allow_proxy' => 'required|boolean',
             ]
         );
 
         \DB::beginTransaction();
         $service = $this->service->create(
             [
-                'name'    => $data['name'],
-                'enabled' => $data['enabled'],
+                'name'        => $data['name'],
+                'enabled'     => $data['enabled'],
+                'allow_proxy' => $data['allow_proxy'],
             ]
         );
 
@@ -59,6 +61,7 @@ class ServiceRepository extends Base
             [
                 'hosts',
                 'enabled',
+                'allow_proxy',
             ]
         );
 
@@ -69,9 +72,10 @@ class ServiceRepository extends Base
         $this->validate(
             $data,
             [
-                'hosts'   => 'array',
-                'hosts.*' => 'unique:cas_service_hosts,host',
-                'enabled' => 'boolean',
+                'hosts'       => 'array',
+                'hosts.*'     => 'unique:cas_service_hosts,host',
+                'enabled'     => 'boolean',
+                'allow_proxy' => 'boolean',
             ]
         );
 

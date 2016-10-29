@@ -42,6 +42,7 @@ return [
         'name'              => '服务名称',
         'hosts'             => '域名',
         'enabled'           => '是否启用',
+        'allow_proxy'       => '启用代理',
         'created_at'        => '创建时间',
         'add'               => '添加服务',
         'hosts_placeholder' => '一行一个',

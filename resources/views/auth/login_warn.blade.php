@@ -6,7 +6,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Central Authentication Service</h3>
+                        <h3 class="panel-title">{{ config('cas_server.site_name') }}</h3>
                     </div>
                     <div class="panel-body">
                         <div class="alert alert-warning">
