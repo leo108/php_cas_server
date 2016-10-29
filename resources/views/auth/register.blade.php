@@ -8,7 +8,7 @@
                 <div class="panel-heading">{{ config('cas_server.site_name') }}</div>
                 <div class="panel-body">
                     @if($oauth)
-                        <div class="alert alert-success">@lang('you_have_bound_oauth')</div>
+                        <div class="alert alert-success">@lang('auth.oauth_bound')</div>
                     @endif
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register.post') }}">
                         {{ csrf_field() }}

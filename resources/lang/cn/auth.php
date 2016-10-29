@@ -32,4 +32,5 @@ return [
     'real_name'    => '真实姓名',
     'confirm_pwd'  => '重复密码',
     'logged_out'   => '注销成功',
+    'oauth_bound'  => '绑定第三方登录成功',
 ];

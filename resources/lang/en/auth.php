@@ -32,4 +32,5 @@ return [
     'real_name'    => 'Real Name',
     'confirm_pwd'  => 'Confirm Password',
     'logged_out'   => 'Logout successful',
+    'oauth_bound'  => 'You have bound oauth successfully',
 ];
