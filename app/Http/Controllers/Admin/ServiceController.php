@@ -49,10 +49,8 @@ class ServiceController extends Controller
 
     public function store(Request $request)
     {
-        $hosts = array_filter(explode("\n", $request->get('hosts', '')));
-
         $all          = $request->all();
-        $all['hosts'] = $hosts;
+        $all['hosts'] = $this->formatHosts($request);
         $service      = $this->serviceRepository->create($all);
         $service->load('hosts');
 
@@ -61,11 +59,31 @@ class ServiceController extends Controller
 
     public function update(Service $service, Request $request)
     {
-        $hosts        = array_filter(explode("\n", $request->get('hosts', '')));
         $all          = $request->all();
-        $all['hosts'] = $hosts;
+        $all['hosts'] = $this->formatHosts($request);
         $this->serviceRepository->update($all, $service);
 
         return response()->json(['msg' => trans('admin.service.edit_ok')]);
+    }
+
+    protected function formatHosts(Request $request)
+    {
+        $hosts  = explode("\n", $request->get('hosts', ''));
+        $result = [];
+        foreach ($hosts as $host) {
+            $host = trim($host);
+            if (empty($host)) {
+                continue;
+            }
+
+            if (filter_var($host, FILTER_VALIDATE_URL)) {
+                $realHost = parse_url($host, PHP_URL_HOST);
+                $result[] = $realHost;
+            } else {
+                $result[] = $host;
+            }
+        }
+
+        return $result;
     }
 }

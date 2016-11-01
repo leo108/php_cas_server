@@ -45,7 +45,7 @@ return [
         'allow_proxy'       => 'Allow proxy',
         'created_at'        => 'Created Time',
         'add'               => 'Add Service',
-        'hosts_placeholder' => 'One url per line',
+        'hosts_placeholder' => "One domain per line, eg:\nleo108.com\ngithub.com",
         'add_ok'            => 'Add service successful',
         'edit_ok'           => 'Edit service successful',
     ],

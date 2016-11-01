@@ -45,7 +45,7 @@ return [
         'allow_proxy'       => '启用代理',
         'created_at'        => '创建时间',
         'add'               => '添加服务',
-        'hosts_placeholder' => '一行一个',
+        'hosts_placeholder' => "一行一个，如\nleo108.com\ngithub.com",
         'add_ok'            => '添加服务成功',
         'edit_ok'           => '编辑服务成功',
     ],
