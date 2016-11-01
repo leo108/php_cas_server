@@ -113,15 +113,17 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-4 control-label">@lang('admin.user.enabled')</label>
-                            <div class="col-sm-6">
-                                <input type="checkbox" class="form-control" v-model="editUser.enabled" name="enabled"/>
+                            <div class="col-sm-6 col-sm-offset-4">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" v-model="editUser.enabled" name="enabled"/>@lang('admin.user.enabled')</label>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-4 control-label">@lang('admin.user.admin')</label>
-                            <div class="col-sm-6">
-                                <input type="checkbox" class="form-control" v-model="editUser.admin" name="admin"/>
+                            <div class="col-sm-6 col-sm-offset-4">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" v-model="editUser.admin" name="admin"/>@lang('admin.user.admin')</label>
+                                </div>
                             </div>
                         </div>
                     </form>

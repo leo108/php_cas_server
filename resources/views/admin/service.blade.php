@@ -88,15 +88,17 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-4 control-label">@lang('admin.service.allow_proxy')</label>
-                            <div class="col-sm-6">
-                                <input type="checkbox" v-model="editService.allow_proxy" name="allow_proxy"/>
+                            <div class="col-sm-6 col-sm-offset-4">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" v-model="editService.allow_proxy" name="allow_proxy"/>@lang('admin.service.allow_proxy')</label>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-4 control-label">@lang('admin.service.enabled')</label>
-                            <div class="col-sm-6">
-                                <input type="checkbox" v-model="editService.enabled" name="enabled"/>
+                            <div class="col-sm-6 col-sm-offset-4">
+                                <div class="checkbox">
+                                <label><input type="checkbox" v-model="editService.enabled" name="enabled"/>@lang('admin.service.enabled')</label>
+                                </div>
                             </div>
                         </div>
                     </form>
