@@ -14,7 +14,7 @@ class CreateProxyGrantingTicketsTable extends Migration
     {
         Schema::create('cas_proxy_granting_tickets', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ticket', 256)->unique();
+            $table->string('ticket')->unique();
             $table->string('pgt_url', 1024);
             $table->integer('service_id')->unsigned();
             $table->integer('user_id')->unsigned();

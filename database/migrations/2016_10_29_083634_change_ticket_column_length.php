@@ -13,7 +13,7 @@ class ChangeTicketColumnLength extends Migration
     public function up()
     {
         Schema::table('cas_tickets', function (Blueprint $table) {
-            $table->string('ticket', 256)->change();
+            $table->string('ticket')->change();
         });
     }
 
