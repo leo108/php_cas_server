@@ -75,6 +75,12 @@ PHP CAS Server是一个基于Laravel框架开发的CAS服务端实现，旨在�
 |TRUSTED_HEADER_CLIENT_PROTO|`X_FORWARDED_PROTO`|该请求头保存用户访问时使用的协议|
 |TRUSTED_HEADER_CLIENT_PORT|`X_FORWARDED_PORT`|该请求头保存用户访问的端口|
 
+## 初始化数据库 && 创建管理员
+
+在项目的根目录执行`php artisan migrate`来初始化数据库结构。
+
+执行`php artisan make:admin --password=yourpassword`创建一个管理员账号。
+
 # 登录插件
 
 对于使用压缩包安装的用户，安装登录插件需要先安装composer，具体安装方式请自行搜索。

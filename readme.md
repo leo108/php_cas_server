@@ -73,6 +73,12 @@ You have to set all fields that begin with `DB_`, then run `php artisan migrate`
 |TRUSTED_HEADER_CLIENT_PROTO|`X_FORWARDED_PROTO`|The http protocol user used is stored in this request header|
 |TRUSTED_HEADER_CLIENT_PORT|`X_FORWARDED_PORT`|The port user visited is stored in this request header|
 
+## Initial database and create administrator
+
+Execute `php artisan migrate` at the root directory of this project to initial database.
+
+Execute `php artisan make:admin --password=yourpassword` to create an administrator account.
+
 ## License
 
 [MIT](http://opensource.org/licenses/MIT).
