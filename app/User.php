@@ -33,6 +33,11 @@ class User extends Authenticatable implements UserModel
         'remember_token',
     ];
 
+    protected $casts = [
+        'enabled' => 'boolean',
+        'admin'   => 'boolean',
+    ];
+
     public function oauth()
     {
         return $this->hasOne(UserOauth::class);
