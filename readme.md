@@ -2,7 +2,7 @@
 
 PHP CAS Server is a PHP implementation of CAS Server Protocol based on Laravel.
 
-[中文文档](https://github.com/leo108/php_cas_server/wiki/%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3)
+[中文文档](https://github.com/leo108/php_cas_server/blob/master/readme_zh.md)
 
 ## Features
 
@@ -20,7 +20,9 @@ PHP CAS Server is a PHP implementation of CAS Server Protocol based on Laravel.
 
 ### By composer (Recommend)
 
-`composer create-project leo108/php_cas_server php_cas_server dev-master`
+1. `composer create-project leo108/php_cas_server php_cas_server dev-master`
+2. `npm install` or `yarn`
+3. `gulp`
 
 ### By release tarballs
 

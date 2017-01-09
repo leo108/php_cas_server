@@ -18,7 +18,9 @@ PHP CAS Server是一个基于Laravel框架开发的CAS服务端实现，旨在�
 
 ## 通过composer安装
 
-`composer create-project leo108/php_cas_server php_cas_server dev-master`
+1. `composer create-project leo108/php_cas_server php_cas_server dev-master`
+2. `npm install` 或者 `yarn`
+3. `gulp`
 
 ## 下载压缩包
 
