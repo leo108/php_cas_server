@@ -92,7 +92,7 @@ class UserLogin implements Contract
      */
     public function redirectToHome(array $errors = [])
     {
-        return redirect()->route('home')->withErrors(['global' => $errors]);
+        return redirect()->intended(route('home'))->withErrors(['global' => $errors]);
     }
 
     /**
