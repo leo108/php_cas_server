@@ -222,7 +222,7 @@ class UserRepository
     public function getList($search, $enabled, $admin, $page, $limit)
     {
         /* @var \Illuminate\Database\Query\Builder $query */
-        $query = $this->user::query();
+        $query = $this->user->query();
         if ($search) {
             $like = '%'.$search.'%';
             $query->where(
