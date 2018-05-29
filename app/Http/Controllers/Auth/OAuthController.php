@@ -51,7 +51,7 @@ class OAuthController extends Controller
         }
 
         /* @var Plugin $plugin */
-        $oauthUser = $plugin->getOAuthUser($request);
+        $oauthUser = $plugin->getOAuthUser($request, route('oauth.callback', ['name' => $name]));
         $bindUser  = null;
         foreach ($oauthUser->getBinds() as $type => $id) {
             if (!$id) {

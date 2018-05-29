@@ -8,7 +8,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "leo108/laravel_cas_server": "^2.0.0",
-        "leo108/php_cas_server_oauth_plugin_center": "1.*",
+        "leo108/php_cas_server_oauth_plugin_center": "2.*",
         "arvenil/ninja-mutex": "^0.5.1",
         "fideloper/proxy": "^3.1"
     },
