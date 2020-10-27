@@ -19,7 +19,7 @@
                         @if(!config('cas_server.disable_pwd_login'))
                         {{ csrf_field() }}
                         @if(!is_null($service))
-                            <input type="hidden" name="service" value="{!! $service !!}">
+                            <input type="hidden" name="service" value="{{ $service }}">
                         @endif
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">@lang('auth.email')</label>
